@@ -2,22 +2,23 @@ import { Link } from "react-router-dom";
 
 function Navbar() {
   return (
-    <nav style={{ padding: "1rem", background: "#333", color: "#fff" }}>
-      <h2 style={{ display: "inline" }}>MyCompany</h2>
-      <ul style={{ display: "inline", marginLeft: "2rem", listStyle: "none" }}>
-        <li style={{ display: "inline", marginRight: "1rem" }}>
-          <Link to="/" style={{ color: "#fff", textDecoration: "none" }}>Home</Link>
-        </li>
-        <li style={{ display: "inline", marginRight: "1rem" }}>
-          <Link to="/about" style={{ color: "#fff", textDecoration: "none" }}>About</Link>
-        </li>
-        <li style={{ display: "inline", marginRight: "1rem" }}>
-          <Link to="/services" style={{ color: "#fff", textDecoration: "none" }}>Services</Link>
-        </li>
-        <li style={{ display: "inline" }}>
-          <Link to="/contact" style={{ color: "#fff", textDecoration: "none" }}>Contact</Link>
-        </li>
-      </ul>
+    <nav
+      style={{
+        padding: "1rem",
+        backgroundColor: "#333",     // ✅ changed from background to backgroundColor
+        color: "#fff",
+        display: "flex",             // ✅ added flexbox
+        justifyContent: "space-between", // ✅ added justifyContent
+        alignItems: "center"
+      }}
+    >
+      <h2 style={{ margin: 0 }}>MyCompany</h2>
+      <div>
+        <Link to="/" style={{ margin: "0 1rem", color: "#fff" }}>Home</Link>
+        <Link to="/about" style={{ margin: "0 1rem", color: "#fff" }}>About</Link>
+        <Link to="/services" style={{ margin: "0 1rem", color: "#fff" }}>Services</Link>
+        <Link to="/contact" style={{ margin: "0 1rem", color: "#fff" }}>Contact</Link>
+      </div>
     </nav>
   );
 }
