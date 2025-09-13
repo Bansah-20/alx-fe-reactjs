@@ -1,38 +1,40 @@
-import { useState } from "react";
-import useRecipeStore from "../store/recipeStore";
+import React, { useState } from 'react'
+import useRecipeStore from '../stores/useRecipeStore'
+import { useNavigate } from 'react-router-dom'
 
 const AddRecipeForm = () => {
-  const addRecipe = useRecipeStore((state) => state.addRecipe);
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
+  const addRecipe = useRecipeStore(state => state.addRecipe)
+  const [title, setTitle] = useState('')
+  const [description, setDescription] = useState('')
+  const navigate = useNavigate()
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    if (!title.trim()) return;
-    addRecipe({ id: Date.now(), title, description });
-    setTitle("");
-    setDescription("");
-  };
+    e.preventDefault()
+    if (!title.trim()) return
+    addRecipe({ title: title.trim(), description: description.trim() })
+    setTitle('')
+    setDescription('')
+    // optional: navigate to home (keeps UX clear)
+    navigate('/')
+  }
 
   return (
-    <form onSubmit={handleSubmit} className="mb-4">
+    <form onSubmit={handleSubmit}>
       <input
-        className="border p-2 mr-2"
+        type="text"
+        placeholder="Title"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
-        placeholder="Title"
+        required
       />
       <textarea
-        className="border p-2 mr-2"
+        placeholder="Description"
         value={description}
         onChange={(e) => setDescription(e.target.value)}
-        placeholder="Description"
       />
-      <button className="bg-blue-500 text-white px-3 py-1 rounded" type="submit">
-        Add
-      </button>
+      <button type="submit">Add Recipe</button>
     </form>
-  );
-};
+  )
+}
 
-export default AddRecipeForm;
+export default AddRecipeForm
