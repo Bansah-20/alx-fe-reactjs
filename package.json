@@ -12,11 +12,8 @@
   "dependencies": {
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
-<<<<<<< HEAD
-=======
     "react-router-dom": "^7.9.1",
->>>>>>> recipe-sharing-app
-    "zustand": "^5.0.8"
+    "zustand": "^4.5.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.33.0",
