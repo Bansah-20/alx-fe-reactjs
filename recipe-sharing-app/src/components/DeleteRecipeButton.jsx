@@ -1,16 +1,18 @@
 import React from "react";
-import useRecipeStore from "../store/recipeStore";
+import { useRecipeStore } from "../store/recipeStore";
 
-function DeleteRecipeButton({ recipeId }) {
+const DeleteRecipeButton = ({ recipeId }) => {
   const deleteRecipe = useRecipeStore((state) => state.deleteRecipe);
 
   const handleDelete = () => {
-    if (window.confirm("Are you sure you want to delete this recipe?")) {
-      deleteRecipe(recipeId);
-    }
+    deleteRecipe(recipeId);
   };
 
-  return <button onClick={handleDelete}>Delete</button>;
-}
+  return (
+    <button onClick={handleDelete}>
+      Delete Recipe
+    </button>
+  );
+};
 
 export default DeleteRecipeButton;
