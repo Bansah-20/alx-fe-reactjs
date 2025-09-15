@@ -1,30 +1,37 @@
 import React from "react";
 import useRecipeStore from "./recipeStore";
 
-const FavoritesList = () => {
-  const recipes = useRecipeStore((state) => state.recipes);
-  const favorites = useRecipeStore((state) =>
-    state.favorites.map((id) => recipes.find((r) => r.id === id))
-  );
+const useRecipeStore = create((set) => ({
+  recipes: [],
+  searchTerm: "",
+  favorites: [],
+  recommendations: [],   
 
-  if (favorites.length === 0) {
-    return <p>No favorites yet.</p>;
-  }
+  setSearchTerm: (term) => set({ searchTerm: term }),
+  filterRecipes: () =>
+    set((state) => ({
+      filteredRecipes: state.recipes.filter((recipe) =>
+        recipe.title.toLowerCase().includes(state.searchTerm.toLowerCase())
+      ),
+    })),
 
-  return (
-    <div>
-      <h2>My Favorites</h2>
-      {favorites.map(
+  addFavorite: (recipeId) =>
+    set((state) => ({
+      favorites: [...state.favorites, recipeId],
+    })),
+  removeFavorite: (recipeId) =>
+    set((state) => ({
+      favorites: state.favorites.filter((id) => id !== recipeId),
+    })),
+
+  generateRecommendations: () =>
+    set((state) => {
+      const recommended = state.recipes.filter(
         (recipe) =>
-          recipe && (
-            <div key={recipe.id}>
-              <h3>{recipe.title}</h3>
-              <p>{recipe.description}</p>
-            </div>
-          )
-      )}
-    </div>
-  );
-};
+          state.favorites.includes(recipe.id) && Math.random() > 0.5
+      );
+      return { recommendations: recommended };
+    }),
+}));
 
-export default FavoritesList;
+export default useRecipeStore;
