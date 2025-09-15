@@ -1,50 +1,30 @@
-// src/store/recipeStore.js
-import create from "zustand";
+import React from "react";
+import useRecipeStore from "./recipeStore";
 
-const useRecipeStore = create((set) => ({
-  recipes: [],
-  searchTerm: "",
-  filteredRecipes: [],
+const FavoritesList = () => {
+  const recipes = useRecipeStore((state) => state.recipes);
+  const favorites = useRecipeStore((state) =>
+    state.favorites.map((id) => recipes.find((r) => r.id === id))
+  );
 
-  setSearchTerm: (term) =>
-    set((state) => {
-      const filtered = state.recipes.filter((recipe) =>
-        recipe.title.toLowerCase().includes(term.toLowerCase())
-      );
-      return { searchTerm: term, filteredRecipes: filtered };
-    }),
+  if (favorites.length === 0) {
+    return <p>No favorites yet.</p>;
+  }
 
-  addRecipe: (recipe) =>
-    set((state) => ({
-      recipes: [...state.recipes, recipe],
-      filteredRecipes: [...state.recipes, recipe].filter((r) =>
-        r.title.toLowerCase().includes(state.searchTerm.toLowerCase())
-      ),
-    })),
+  return (
+    <div>
+      <h2>My Favorites</h2>
+      {favorites.map(
+        (recipe) =>
+          recipe && (
+            <div key={recipe.id}>
+              <h3>{recipe.title}</h3>
+              <p>{recipe.description}</p>
+            </div>
+          )
+      )}
+    </div>
+  );
+};
 
-  updateRecipe: (updatedRecipe) =>
-    set((state) => {
-      const updatedRecipes = state.recipes.map((r) =>
-        r.id === updatedRecipe.id ? updatedRecipe : r
-      );
-      return {
-        recipes: updatedRecipes,
-        filteredRecipes: updatedRecipes.filter((r) =>
-          r.title.toLowerCase().includes(state.searchTerm.toLowerCase())
-        ),
-      };
-    }),
-
-  deleteRecipe: (id) =>
-    set((state) => {
-      const updatedRecipes = state.recipes.filter((r) => r.id !== id);
-      return {
-        recipes: updatedRecipes,
-        filteredRecipes: updatedRecipes.filter((r) =>
-          r.title.toLowerCase().includes(state.searchTerm.toLowerCase())
-        ),
-      };
-    }),
-}));
-
-export default useRecipeStore;
+export default FavoritesList;
