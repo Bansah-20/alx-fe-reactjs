@@ -20,10 +20,10 @@ function Search() {
       if (data) {
         setUser(data);
       } else {
-        setError("Looks like we can't find the user");
+        setError("Looks like we cant find the user"); // 👈 fixed here
       }
     } catch {
-      setError("Looks like we can't find the user");
+      setError("Looks like we cant find the user"); // 👈 fixed here
     } finally {
       setLoading(false);
     }
@@ -41,7 +41,6 @@ function Search() {
         <button type="submit">Search</button>
       </form>
 
-      {/* Conditional rendering */}
       {loading && <p>Loading...</p>}
       {error && <p style={{ color: "red" }}>{error}</p>}
 
