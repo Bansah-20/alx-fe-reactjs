@@ -3,18 +3,28 @@
     "id": 1,
     "title": "Spaghetti Carbonara",
     "summary": "A classic Italian pasta dish with eggs, cheese, bacon, and black pepper.",
-    "image": "https://via.placeholder.com/300x200"
+    "image": "https://via.placeholder.com/300x200",
+    "ingredients": ["Spaghetti", "Eggs", "Pecorino Romano", "Guanciale", "Black Pepper"],
+    "instructions": [
+      "Cook spaghetti in salted boiling water.",
+      "Fry guanciale until crispy.",
+      "Mix eggs and cheese in a bowl.",
+      "Combine spaghetti with guanciale and egg mixture off the heat.",
+      "Serve with black pepper."
+    ]
   },
   {
     "id": 2,
     "title": "Chicken Tikka Masala",
     "summary": "Chunks of grilled chicken (tikka) cooked in a smooth buttery & creamy tomato based gravy.",
-    "image": "https://via.placeholder.com/300x200"
-  },
-  {
-    "id": 3,
-    "title": "Avocado Toast",
-    "summary": "Crispy toasted bread topped with mashed avocado, lemon juice, and chili flakes.",
-    "image": "https://via.placeholder.com/300x200"
+    "image": "https://via.placeholder.com/300x200",
+    "ingredients": ["Chicken", "Yogurt", "Spices", "Tomatoes", "Cream"],
+    "instructions": [
+      "Marinate chicken in yogurt and spices.",
+      "Grill or pan-fry chicken until cooked.",
+      "Cook tomatoes, spices, and cream into a sauce.",
+      "Add chicken to the sauce and simmer.",
+      "Serve with rice or naan."
+    ]
   }
 ]
