@@ -31,29 +31,19 @@ function RecipeDetail() {
           {recipe.title}
         </h1>
 
-       
-        <div className="mb-6">
-          <h2 className="text-2xl font-semibold text-gray-800 mb-2">
-            Ingredients
-          </h2>
-          <ul className="list-disc list-inside text-gray-700 space-y-1">
-            {recipe.ingredients
-              ? recipe.ingredients.map((item, idx) => <li key={idx}>{item}</li>)
-              : <li>Ingredients list coming soon...</li>}
-          </ul>
-        </div>
+        <h2 className="text-2xl font-semibold mb-2">Ingredients</h2>
+        <ul className="list-disc list-inside mb-6">
+          {recipe.ingredients?.map((item, idx) => (
+            <li key={idx}>{item}</li>
+          ))}
+        </ul>
 
-
-        <div>
-          <h2 className="text-2xl font-semibold text-gray-800 mb-2">
-            Instructions
-          </h2>
-          <ol className="list-decimal list-inside text-gray-700 space-y-2">
-            {recipe.instructions
-              ? recipe.instructions.map((step, idx) => <li key={idx}>{step}</li>)
-              : <li>Instructions coming soon...</li>}
-          </ol>
-        </div>
+        <h2 className="text-2xl font-semibold mb-2">Instructions</h2>
+        <ol className="list-decimal list-inside space-y-2">
+          {recipe.instructions?.map((step, idx) => (
+            <li key={idx}>{step}</li>
+          ))}
+        </ol>
 
         <div className="mt-8">
           <Link

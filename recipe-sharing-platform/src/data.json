@@ -4,27 +4,59 @@
     "title": "Spaghetti Carbonara",
     "summary": "A classic Italian pasta dish with eggs, cheese, bacon, and black pepper.",
     "image": "https://via.placeholder.com/300x200",
-    "ingredients": ["Spaghetti", "Eggs", "Pecorino Romano", "Guanciale", "Black Pepper"],
+    "ingredients": [
+      "200g Spaghetti",
+      "2 Eggs",
+      "50g Pecorino Romano",
+      "100g Guanciale (or bacon)",
+      "Black Pepper"
+    ],
     "instructions": [
-      "Cook spaghetti in salted boiling water.",
+      "Boil spaghetti in salted water until al dente.",
       "Fry guanciale until crispy.",
-      "Mix eggs and cheese in a bowl.",
-      "Combine spaghetti with guanciale and egg mixture off the heat.",
-      "Serve with black pepper."
+      "Whisk eggs and Pecorino Romano in a bowl.",
+      "Mix hot pasta with guanciale and egg mixture off the heat.",
+      "Season with black pepper and serve."
     ]
   },
   {
     "id": 2,
     "title": "Chicken Tikka Masala",
-    "summary": "Chunks of grilled chicken (tikka) cooked in a smooth buttery & creamy tomato based gravy.",
+    "summary": "Chunks of grilled chicken (tikka) cooked in a smooth buttery & creamy tomato-based gravy.",
     "image": "https://via.placeholder.com/300x200",
-    "ingredients": ["Chicken", "Yogurt", "Spices", "Tomatoes", "Cream"],
+    "ingredients": [
+      "500g Chicken breast",
+      "1 cup Yogurt",
+      "Spices (garam masala, cumin, paprika)",
+      "400g Tomatoes",
+      "200ml Cream"
+    ],
     "instructions": [
-      "Marinate chicken in yogurt and spices.",
+      "Marinate chicken in yogurt and spices for 1 hour.",
       "Grill or pan-fry chicken until cooked.",
-      "Cook tomatoes, spices, and cream into a sauce.",
-      "Add chicken to the sauce and simmer.",
-      "Serve with rice or naan."
+      "Cook tomatoes and spices into a sauce.",
+      "Stir in cream for a rich base.",
+      "Add chicken to sauce and simmer for 10 minutes."
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Avocado Toast",
+    "summary": "Crispy toasted bread topped with mashed avocado, lemon juice, and chili flakes.",
+    "image": "https://via.placeholder.com/300x200",
+    "ingredients": [
+      "2 slices Bread",
+      "1 ripe Avocado",
+      "1 tsp Lemon juice",
+      "Salt",
+      "Chili flakes"
+    ],
+    "instructions": [
+      "Toast the bread until golden.",
+      "Mash avocado with lemon juice and salt.",
+      "Spread avocado on toast.",
+      "Sprinkle chili flakes on top.",
+      "Serve immediately."
     ]
   }
 ]
