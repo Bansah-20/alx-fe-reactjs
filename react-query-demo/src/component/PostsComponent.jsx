@@ -1,3 +1,4 @@
+// src/components/PostsComponent.jsx
 import { useQuery } from "react-query";
 import { useState } from "react";
 
@@ -10,17 +11,10 @@ const fetchPosts = async () => {
 export default function PostsComponent() {
   const [isRefetching, setIsRefetching] = useState(false);
 
-  const {
-    data,
-    isLoading,
-    isError,
-    error,
-    refetch,
-    isFetching,
-  } = useQuery({
+  const { data, isLoading, isError, error, refetch, isFetching } = useQuery({
     queryKey: ["posts"],
     queryFn: fetchPosts,
-    staleTime: 5000, // Data is fresh for 5 seconds
+    staleTime: 5000,
   });
 
   if (isLoading) return <p>Loading posts...</p>;
@@ -33,9 +27,8 @@ export default function PostsComponent() {
   };
 
   return (
-    <div className="posts-container" style={{ padding: "2rem" }}>
+    <div style={{ padding: "2rem" }}>
       <h1>Posts</h1>
-
       <button
         onClick={handleRefetch}
         disabled={isRefetching || isFetching}
