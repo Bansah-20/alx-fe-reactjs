@@ -8,7 +8,6 @@ export default function TodoList() {
 
   const [newTodo, setNewTodo] = useState("");
 
-  // Add Todo
   const addTodo = (e) => {
     e.preventDefault();
     if (!newTodo.trim()) return;
@@ -16,7 +15,6 @@ export default function TodoList() {
     setNewTodo("");
   };
 
-  // Toggle Todo
   const toggleTodo = (id) => {
     setTodos(
       todos.map((todo) =>
@@ -25,26 +23,22 @@ export default function TodoList() {
     );
   };
 
-  // Delete Todo
   const deleteTodo = (id) => {
     setTodos(todos.filter((todo) => todo.id !== id));
   };
 
   return (
-    <div className="p-6 max-w-md mx-auto">
-      <h1 className="text-2xl font-bold mb-4">Todo List</h1>
+    <div>
+      <h1>Todo List</h1>
 
-      <form onSubmit={addTodo} className="flex gap-2 mb-4">
+      <form onSubmit={addTodo}>
         <input
           type="text"
           placeholder="Add new todo..."
           value={newTodo}
           onChange={(e) => setNewTodo(e.target.value)}
-          className="border p-2 flex-1 rounded"
         />
-        <button type="submit" className="bg-blue-500 text-white px-4 rounded">
-          Add
-        </button>
+        <button type="submit">Add</button>
       </form>
 
       <ul>
@@ -52,20 +46,10 @@ export default function TodoList() {
           <li
             key={todo.id}
             onClick={() => toggleTodo(todo.id)}
-            className={`flex justify-between items-center p-2 border-b cursor-pointer ${
-              todo.completed ? "line-through text-gray-500" : ""
-            }`}
+            className={todo.completed ? "completed" : ""}
           >
-            <span>{todo.text}</span>
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                deleteTodo(todo.id);
-              }}
-              className="text-red-500 hover:text-red-700"
-            >
-              Delete
-            </button>
+            {todo.text}
+            <button onClick={(e) => { e.stopPropagation(); deleteTodo(todo.id); }}>Delete</button>
           </li>
         ))}
       </ul>

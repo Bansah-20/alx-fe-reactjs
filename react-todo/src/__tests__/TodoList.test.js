@@ -24,7 +24,7 @@ describe("TodoList Component", () => {
     render(<TodoList />);
     const todo = screen.getByText("Learn React");
     fireEvent.click(todo);
-    expect(todo).toHaveClass("line-through");
+    expect(todo).toHaveClass("completed");
   });
 
   test("deletes a todo", () => {
