@@ -1,7 +1,8 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Profile from "./components/Profile";
-import Home from "./components/Home"; // or any public component
+import BlogPost from "./components/BlogPost";
+import Home from "./components/Home"; // optional
 import Login from "./components/Login"; // optional
 
 function App() {
@@ -18,6 +19,8 @@ function App() {
             </ProtectedRoute>
           }
         />
+      
+        <Route path="/blog/:id" element={<BlogPost />} />
       </Routes>
     </Router>
   );

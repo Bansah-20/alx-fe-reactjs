@@ -4,9 +4,12 @@ export default function BlogPost() {
   const { id } = useParams();
 
   return (
-    <div style={{ padding: "2rem" }}>
-      <h1>Blog Post #{id}</h1>
-      <p>This page displays details for blog post with ID: {id}.</p>
+    <div className="p-6">
+      <h1 className="text-2xl font-bold mb-4">Blog Post #{id}</h1>
+      <p>
+        This is a dynamically loaded blog post page. The ID (<strong>{id}</strong>) 
+        comes directly from the URL parameter.
+      </p>
     </div>
   );
 }
