@@ -2,15 +2,15 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
 export default function FormikForm() {
-  
+ 
   const validationSchema = Yup.object({
-    username: Yup.string().required("Username is required."),
+    username: Yup.string().required("Username is required"),
     email: Yup.string()
-      .email("Invalid email format.")
-      .required("Email is required."),
+      .email("Invalid email format")
+      .required("Email is required"),
     password: Yup.string()
-      .min(6, "Password must be at least 6 characters.")
-      .required("Password is required."),
+      .min(6, "Password must be at least 6 characters")
+      .required("Password is required"),
   });
 
   
@@ -20,9 +20,9 @@ export default function FormikForm() {
     password: "",
   };
 
-  
+ 
   const handleSubmit = (values, { setSubmitting, resetForm }) => {
-    console.log("Form Submitted:", values);
+    console.log("Formik form submitted:", values);
     setTimeout(() => {
       alert("Registration successful!");
       setSubmitting(false);
@@ -34,6 +34,7 @@ export default function FormikForm() {
     <div className="max-w-md mx-auto mt-10 p-6 bg-blue-50 rounded-lg shadow-md">
       <h2 className="text-2xl font-bold mb-4 text-center">Register (Formik)</h2>
 
+
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
@@ -41,12 +42,13 @@ export default function FormikForm() {
       >
         {({ isSubmitting }) => (
           <Form>
-    
+          
             <div className="mb-4">
               <label className="block font-medium mb-1">Username</label>
               <Field
                 type="text"
                 name="username"
+                placeholder="Enter username"
                 className="w-full p-2 border border-gray-300 rounded"
               />
               <ErrorMessage
@@ -62,6 +64,7 @@ export default function FormikForm() {
               <Field
                 type="email"
                 name="email"
+                placeholder="Enter email"
                 className="w-full p-2 border border-gray-300 rounded"
               />
               <ErrorMessage
@@ -71,12 +74,13 @@ export default function FormikForm() {
               />
             </div>
 
-            
+           
             <div className="mb-4">
               <label className="block font-medium mb-1">Password</label>
               <Field
                 type="password"
                 name="password"
+                placeholder="Enter password"
                 className="w-full p-2 border border-gray-300 rounded"
               />
               <ErrorMessage
