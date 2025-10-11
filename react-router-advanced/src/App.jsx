@@ -1,32 +1,23 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Navbar from "./components/Navbar";
-import Home from "./pages/Home";
-import About from "./pages/About";
-import Profile from "./components/Profile";
-import BlogPost from "./components/BlogPost";
 import ProtectedRoute from "./components/ProtectedRoute";
+import Profile from "./components/Profile";
+import Home from "./components/Home"; // or any public component
+import Login from "./components/Login"; // optional
 
 function App() {
   return (
     <Router>
-      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-<Route
-  path="/profile/*"
-  element={
-    <ProtectedRoute>
-      <Profile />
-    </ProtectedRoute>
-  }
->
-  <Route path="details" element={<ProfileDetails />} />
-  <Route path="settings" element={<ProfileSettings />} />
-</Route>
-
-        {/* Dynamic Route Example */}
-        <Route path="/blog/:id" element={<BlogPost />} />
+        <Route path="/login" element={<Login />} />
+        <Route
+          path="/profile/:userId/*"
+          element={
+            <ProtectedRoute>
+              <Profile />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
     </Router>
   );
