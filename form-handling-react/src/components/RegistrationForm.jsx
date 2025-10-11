@@ -1,23 +1,30 @@
 import { useState } from "react";
 
 export default function RegistrationForm() {
-  
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
 
-  
   const validate = () => {
     const newErrors = {};
-    if (!username.trim()) newErrors.username = "Username is required.";
-    if (!email.trim()) newErrors.email = "Email is required.";
-    if (!password.trim()) newErrors.password = "Password is required.";
+
+    if (!username) {
+      newErrors.username = "Username is required.";
+    }
+
+    if (!email) {
+      newErrors.email = "Email is required.";
+    }
+
+    if (!password) {
+      newErrors.password = "Password is required.";
+    }
+
     return newErrors;
   };
 
-  
   const handleSubmit = (e) => {
     e.preventDefault();
     const newErrors = validate();
@@ -42,13 +49,13 @@ export default function RegistrationForm() {
       )}
 
       <form onSubmit={handleSubmit}>
-        
+      
         <div className="mb-4">
           <label className="block font-medium mb-1">Username</label>
           <input
             type="text"
             name="username"
-            value={username} 
+            value={username}
             onChange={(e) => setUsername(e.target.value)}
             className="w-full p-2 border border-gray-300 rounded"
           />
@@ -63,7 +70,7 @@ export default function RegistrationForm() {
           <input
             type="email"
             name="email"
-            value={email}  
+            value={email}
             onChange={(e) => setEmail(e.target.value)}
             className="w-full p-2 border border-gray-300 rounded"
           />
@@ -78,7 +85,7 @@ export default function RegistrationForm() {
           <input
             type="password"
             name="password"
-            value={password}  
+            value={password}
             onChange={(e) => setPassword(e.target.value)}
             className="w-full p-2 border border-gray-300 rounded"
           />

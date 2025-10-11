@@ -2,7 +2,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
 export default function FormikForm() {
- 
+  
   const validationSchema = Yup.object({
     username: Yup.string().required("Username is required"),
     email: Yup.string()
@@ -20,7 +20,7 @@ export default function FormikForm() {
     password: "",
   };
 
- 
+
   const handleSubmit = (values, { setSubmitting, resetForm }) => {
     console.log("Formik form submitted:", values);
     setTimeout(() => {
@@ -34,7 +34,7 @@ export default function FormikForm() {
     <div className="max-w-md mx-auto mt-10 p-6 bg-blue-50 rounded-lg shadow-md">
       <h2 className="text-2xl font-bold mb-4 text-center">Register (Formik)</h2>
 
-
+      
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
@@ -42,13 +42,11 @@ export default function FormikForm() {
       >
         {({ isSubmitting }) => (
           <Form>
-          
             <div className="mb-4">
               <label className="block font-medium mb-1">Username</label>
               <Field
                 type="text"
                 name="username"
-                placeholder="Enter username"
                 className="w-full p-2 border border-gray-300 rounded"
               />
               <ErrorMessage
@@ -58,13 +56,11 @@ export default function FormikForm() {
               />
             </div>
 
-            
             <div className="mb-4">
               <label className="block font-medium mb-1">Email</label>
               <Field
                 type="email"
                 name="email"
-                placeholder="Enter email"
                 className="w-full p-2 border border-gray-300 rounded"
               />
               <ErrorMessage
@@ -74,13 +70,11 @@ export default function FormikForm() {
               />
             </div>
 
-           
             <div className="mb-4">
               <label className="block font-medium mb-1">Password</label>
               <Field
                 type="password"
                 name="password"
-                placeholder="Enter password"
                 className="w-full p-2 border border-gray-300 rounded"
               />
               <ErrorMessage
